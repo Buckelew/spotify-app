@@ -1,0 +1,10 @@
+goals:
+  learn/use react hooks
+  use context ?
+  use next
+  use material ui
+
+app functions:
+  get data from spotify api
+  display it pretty
+  make custom playlists? throwbacks ect
