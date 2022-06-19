@@ -96,7 +96,7 @@ function Dashboard(props) {
         >
           <Tab label="Top Artists" />
           <Tab label="Top Songs" />
-          <Tab label="Listening Stats" />
+          <Tab label="Recent Tracks" />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
