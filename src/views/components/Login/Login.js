@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "@mui/material";
 
 function generateRandomString(length) {
   var text = "";
@@ -39,7 +40,13 @@ const Login = () => {
 
   return (
     <div className="Login">
-      <a onClick={handleLogin}>Login</a>
+      <Button
+        sx={{ mt: 5, backgroundColor: "#1db954" }}
+        variant="contained"
+        onClick={handleLogin}
+      >
+        Login
+      </Button>
     </div>
   );
 };
