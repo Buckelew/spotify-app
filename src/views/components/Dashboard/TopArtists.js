@@ -26,7 +26,7 @@ const TopArtists = ({ topArtistInfo }) => {
             }}
           >
             <CardActionArea
-              onClick={() => window.open(topArtist.external_urls.spotify)}
+            // onClick={() => window.open(topArtist.external_urls.spotify)}
             >
               <CardMedia
                 component="img"
