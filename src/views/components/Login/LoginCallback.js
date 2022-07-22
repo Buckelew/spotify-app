@@ -29,7 +29,7 @@ const LoginCallback = (props) => {
 
   return (
     <div className="LoginCallback">
-      <h1>LoginCallback</h1>
+      <Navigate to="/login" />
     </div>
   );
 };

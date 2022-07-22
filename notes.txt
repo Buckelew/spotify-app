@@ -14,3 +14,5 @@ what i learned:
   learned material ui
   api calls
   worked w/spotify api
+
+  https://gyazo.com/8d637b11239697b1ee67b5775ea5a765

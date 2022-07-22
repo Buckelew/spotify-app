@@ -6,6 +6,7 @@ import {
   CardActionArea,
   CardContent,
 } from "@mui/material";
+import Spotify from "../../assets/Spotify_Icon_RGB_White.png";
 
 const TopArtists = ({ topArtistInfo }) => {
   return (
@@ -34,9 +35,22 @@ const TopArtists = ({ topArtistInfo }) => {
                 image={topArtist.images[2].url}
               />
               <CardContent>
-                <Typography sx={{ fontWeight: "bold" }} variant="h5">{`${
-                  i + 1
-                }. ${topArtist.name}`}</Typography>
+                <img
+                  src={Spotify}
+                  alt="spotify logo"
+                  style={{ height: "30px", position: "absolute", left: "15px" }}
+                />
+                <Typography
+                  sx={{
+                    fontWeight: "bold",
+                    display: "flex",
+                    width: "100%",
+                    justifyContent: "center",
+                  }}
+                  variant="h5"
+                >
+                  {`${i + 1}. ${topArtist.name}`}
+                </Typography>
               </CardContent>
             </CardActionArea>
           </Card>
