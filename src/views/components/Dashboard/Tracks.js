@@ -6,6 +6,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import Spotify from "../../assets/Spotify_Icon_RGB_White.png";
 
 const RecentTracks = ({ tracks }) => {
   console.log("tracks", tracks);
@@ -33,15 +34,38 @@ const RecentTracks = ({ tracks }) => {
                 <TableCell>{i + 1}.</TableCell>
                 <TableCell>
                   <img
-                    style={{ height: "50px" }}
+                    style={{ height: "50px", cursor: "pointer" }}
                     src={track.album.images[0].url}
+                    onClick={() =>
+                      window.open(track.album.external_urls.spotify)
+                    }
+                  />
+                  <img
+                    src={Spotify}
+                    alt="spotify logo"
+                    style={{
+                      height: "25px",
+                      marginLeft: "10px",
+                    }}
                   />
                 </TableCell>
                 <TableCell component="th" scope="row">
-                  {track.name}
+                  <span
+                    style={{ cursor: "pointer" }}
+                    onClick={() => window.open(track.external_urls.spotify)}
+                  >
+                    {track.name}
+                  </span>
                 </TableCell>
-                <TableCell>
-                  {track.artists.map((artist) => artist.name).join(", ")}
+                <TableCell sx={{ maxWidth: "200px" }}>
+                  <span
+                    style={{ cursor: "pointer" }}
+                    onClick={() =>
+                      window.open(track.artists[0].external_urls.spotify)
+                    }
+                  >
+                    {track.artists.map((artist) => artist.name).join(", ")}
+                  </span>
                 </TableCell>
               </TableRow>
             ))}
