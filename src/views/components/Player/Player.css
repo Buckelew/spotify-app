@@ -1,0 +1,15 @@
+.NowPlaying {
+  grid-row: 3/4;
+  grid-column: 1/2;
+}
+
+.Player {
+  width: 100%;
+  max-height: 500px;
+  background-color: var(--clr-white);
+  border-radius: 1em;
+}
+
+#dark .Player {
+  background-color: var(--clr-primary);
+}

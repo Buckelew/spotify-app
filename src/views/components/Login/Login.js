@@ -15,6 +15,9 @@ function generateRandomString(length) {
 const Login = () => {
   const stateKey = "spotify_auth_state";
 
+  // const scope =
+  //   "user-library-read user-read-private user-top-read user-read-recently-played user-modify-playback-state user-read-currently-playing user-read-playback-state";
+
   const scope =
     "user-library-read user-read-private user-top-read user-read-recently-played";
 
@@ -40,6 +43,7 @@ const Login = () => {
 
   return (
     <div className="Login">
+      <h1>Spotify Stats</h1>
       <Button
         sx={{ mt: 5, backgroundColor: "#1db954" }}
         variant="contained"

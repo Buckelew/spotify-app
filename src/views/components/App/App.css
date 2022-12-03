@@ -3,4 +3,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+
+#light {
+  background: linear-gradient(
+    180deg,
+    rgba(224, 177, 203, 0.63) -8.66%,
+    rgba(94, 84, 142, 0.63) 121.02%
+  );
+
+  color: var(--clr-primary);
+}
+
+#dark {
+  background: linear-gradient(180deg, #5e548e -8.66%, #231942 121.02%);
+  color: var(--clr-neutral);
 }

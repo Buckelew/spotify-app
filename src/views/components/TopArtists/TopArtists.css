@@ -1,0 +1,78 @@
+.TopArtists {
+  grid-row: 2/3;
+  grid-column: 1/-1;
+}
+
+.TopArtists .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.TopArtists button.scroll {
+  box-shadow: 0px 14px 6px rgba(0, 0, 0, 0.01), 0px 8px 5px rgba(0, 0, 0, 0.05),
+    0px 4px 4px rgba(0, 0, 0, 0.09), 0px 1px 2px rgba(0, 0, 0, 0.1),
+    0px 0px 0px rgba(0, 0, 0, 0.1);
+  background-color: var(--clr-white);
+  width: 2em;
+  height: 2em;
+  padding: auto;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  border: none;
+  outline: none;
+
+  cursor: pointer;
+
+  border-radius: 8px;
+}
+
+#dark .TopArtists button.scroll {
+  background-color: var(--clr-primary);
+}
+
+#dark .TopArtists button.scroll svg {
+  stroke: #231942;
+}
+
+.TopArtists button.scroll.next img {
+  margin-left: 4px;
+  transform: rotate(-180deg);
+}
+
+.TopArtists button.scroll.prev img {
+  margin-left: 2px;
+}
+
+.TopArtists .artists {
+  list-style-type: none;
+  display: flex;
+  column-gap: 2em;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+
+  scroll-behavior: smooth;
+}
+
+.TopArtists .artists .Artist {
+  filter: drop-shadow(21px 52px 22px rgba(0, 0, 0, 0.01))
+    drop-shadow(12px 29px 19px rgba(0, 0, 0, 0.05))
+    drop-shadow(5px 13px 14px rgba(0, 0, 0, 0.09))
+    drop-shadow(1px 3px 8px rgba(0, 0, 0, 0.1))
+    drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.1));
+}
+
+.TopArtists .artists .Artist img {
+  border-radius: 1em;
+
+  max-width: 320px;
+}
+
+.TopArtists .artists p {
+  margin: 1em 0;
+  text-transform: uppercase;
+  text-align: left;
+  font-weight: 700;
+}

@@ -1,0 +1,85 @@
+.TopTracks {
+  grid-row: 3/4;
+  grid-column: 2/-1;
+}
+.tracks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: calc(100% - 1.5em);
+  max-width: calc(100% - 1em);
+
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.tracks::-webkit-scrollbar-track {
+  background-color: transparent;
+  border: solid 16px transparent;
+  box-shadow: inset 0 0 10px 10px red;
+}
+
+.tracks::-webkit-scrollbar {
+  width: 14px;
+}
+
+.tracks::-webkit-scrollbar-thumb {
+  border: 1px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+  background-color: var(--clr-primary);
+}
+
+#dark .tracks::-webkit-scrollbar-thumb {
+  background-color: var(--clr-neutral);
+}
+
+.tracks .Track {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: 2em 4em repeat(2, calc(50% - 6.5em)) 3em;
+  padding: 1em;
+
+  max-height: 90px;
+  /* max-width: calc(100% - 1em); */
+  max-width: 100%;
+  margin-right: 1em;
+
+  background-color: var(--clr-white);
+  box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.01), 0px 6px 3px rgba(0, 0, 0, 0.05),
+    0px 3px 3px rgba(0, 0, 0, 0.09), 0px 1px 1px rgba(0, 0, 0, 0.1),
+    0px 0px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+#dark .tracks .Track {
+  background-color: var(--clr-primary);
+}
+
+.tracks .Track > * {
+  margin: auto 0;
+}
+
+.tracks .Track p {
+  text-align: left;
+}
+
+.tracks .Track p.strong {
+  font-weight: 700;
+  color: var(--clr-primary);
+}
+
+#dark .tracks .Track p.strong {
+  color: var(--clr-secondary);
+}
+
+.tracks .Track p.light {
+  color: var(--clr-neutral);
+}
+
+.tracks .Track p.num,
+.tracks .Track p.length {
+  text-align: center;
+}

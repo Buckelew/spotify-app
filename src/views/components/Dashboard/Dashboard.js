@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import { Typography, Grid, Box, Tabs, Tab } from "@mui/material";
+import TopArtists from "../TopArtists/TopArtists";
+import Header from "../Header/Header";
+import Player from "../Player/Player";
+import TopTracks from "../TopTracks/TopTracks";
 import axios from "axios";
 import loadingImg from "../../assets/loading.gif";
+import spotifyLogo from "../../assets/Spotify_Logo_CMYK_White.png";
 import "./Dashboard.css";
-import TopArtists from "./TopArtists";
-import TopTracks from "./TopTracks";
-import Tracks from "./Tracks";
-import RecentArtists from "./RecentArtists";
-import TabPanel from "./TabPanel";
 
 function Dashboard(props) {
   const [loading, setLoading] = useState(true);
@@ -24,6 +23,7 @@ function Dashboard(props) {
     setValue(newValue);
   };
 
+  // make sure this only runs once
   useEffect(() => {
     const callSpotifyAPI = async () => {
       const [userRes, topArtistsRes, topTracksRes, recentlyPlayed] =
@@ -75,40 +75,14 @@ function Dashboard(props) {
       </div>
     );
 
-  const recentlyPlayedTracks = recentlyPlayed.items.map((item) => item.track);
-
   return (
-    <Grid
-      container
-      sx={{ height: "100vh", width: "100vw" }}
-      alignItems="center"
-      justifyContent="center"
-      xs={8}
-    >
-      <Typography sx={{ color: "white", width: "100%" }} variant="h1">
-        Hello, {userInfo.display_name}{" "}
-      </Typography>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="basic tabs example"
-        >
-          <Tab label="Top Artists" />
-          <Tab label="Top Songs" />
-          <Tab label="Recent Tracks" />
-        </Tabs>
-      </Box>
-      <TabPanel value={value} index={0}>
-        <TopArtists topArtistInfo={topArtistInfo} />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <Tracks tracks={topTracksInfo.items} />
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <Tracks tracks={recentlyPlayedTracks} />
-      </TabPanel>
-    </Grid>
+    <main className="Dashboard">
+      <img src={spotifyLogo} alt="Spotify Logo" style={{height: '2em', marginTop: '1em'}} />
+      <Header userInfo={userInfo} />
+      <TopArtists topArtistInfo={topArtistInfo} />
+      <Player />
+      <TopTracks topTracksInfo={topTracksInfo} />
+    </main>
   );
 }
 

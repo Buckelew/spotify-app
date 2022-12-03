@@ -1,44 +1,50 @@
-import { useState } from "react";
-import { Routes, BrowserRouter, Route, Navigate } from "react-router-dom";
+import { useState, createContext } from "react";
 import "./App.css";
 import Dashboard from "../Dashboard/Dashboard.js";
-import Header from "../Header/Header.js";
 import Login from "../Login/Login.js";
-import LoginCallback from "../Login/LoginCallback.js";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import LoginCallback from "../Login/LoginCallback";
 
-const theme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
+function getHashParams() {
+  var hashParams = {};
+  var e,
+    r = /([^&;=]+)=?([^&;]*)/g,
+    q = window.location.hash.substring(1);
+  while ((e = r.exec(q))) {
+    hashParams[e[1]] = decodeURIComponent(e[2]);
+  }
+  return hashParams;
+}
+
+export const ThemeContext = createContext(null);
 
 function App() {
   const [accessToken, setAccessToken] = useState();
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    setTheme((t) => (t == "light" ? "dark" : "light"));
+  };
 
   const handleLogout = () => {
     setAccessToken(null);
   };
 
+  let componentToRender = <></>;
+
+  if (accessToken) componentToRender = <Dashboard accessToken={accessToken} />;
+  else if (!accessToken && !getHashParams()["access_token"])
+    componentToRender = <Login />;
+  else if (!accessToken && getHashParams()["access_token"])
+    componentToRender = (
+      <LoginCallback setAccessToken={setAccessToken} params={getHashParams()} />
+    );
+
   return (
-    <div className="App">
-      <ThemeProvider theme={theme}>
-        <BrowserRouter>
-          <Header accessToken={accessToken} handleLogout={handleLogout} />
-          <Routes>
-            <Route path="/" element={<Dashboard accessToken={accessToken} />} />
-            <Route path="/login" element={<Login />} />
-            <Route
-              path="/login/callback"
-              exact
-              element={<LoginCallback setAccessToken={setAccessToken} />}
-            />
-            <Route path="/404" element={<h1>Not found :(</h1>} />
-            <Route path="/" element={<Navigate replace to="/404" />} />
-          </Routes>
-        </BrowserRouter>
-      </ThemeProvider>
-    </div>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <div className="App" id={theme}>
+        {componentToRender}
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
