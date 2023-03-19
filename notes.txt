@@ -16,3 +16,7 @@ what i learned:
   worked w/spotify api
 
   https://gyazo.com/8d637b11239697b1ee67b5775ea5a765
+
+ideas:
+  incorporate chat gpt for music recommendations
+  easy playlist creating feature, allow users to smoothly select songs, and group them into playlists, or get recommendations of new songs, playlists, playlist titles, ect.

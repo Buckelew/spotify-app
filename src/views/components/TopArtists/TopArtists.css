@@ -56,12 +56,8 @@
   scroll-behavior: smooth;
 }
 
-.TopArtists .artists .Artist {
-  filter: drop-shadow(21px 52px 22px rgba(0, 0, 0, 0.01))
-    drop-shadow(12px 29px 19px rgba(0, 0, 0, 0.05))
-    drop-shadow(5px 13px 14px rgba(0, 0, 0, 0.09))
-    drop-shadow(1px 3px 8px rgba(0, 0, 0, 0.1))
-    drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.1));
+.TopArtists .artists .Artist > img {
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.2));
 }
 
 .TopArtists .artists .Artist img {
