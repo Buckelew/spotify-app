@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import TopArtists from "../TopArtists/TopArtists";
 import Header from "../Header/Header";
@@ -7,6 +7,7 @@ import TopTracks from "../TopTracks/TopTracks";
 import axios from "axios";
 import loadingImg from "../../assets/loading.gif";
 import spotifyLogo from "../../assets/Spotify_Logo_CMYK_White.png";
+import { AccessTokenContext } from "../App/App";
 import "./Dashboard.css";
 
 function Dashboard(props) {
@@ -16,7 +17,7 @@ function Dashboard(props) {
   const [topTracksInfo, setTopTracksInfo] = useState();
   const [recentlyPlayed, setRecentlyPlayed] = useState();
   const [value, setValue] = useState(0);
-  const { accessToken } = props;
+  const { accessToken } = useContext(AccessTokenContext);
   const stateKey = "spotify_auth_state";
 
   const handleChange = (event, newValue) => {
@@ -77,7 +78,11 @@ function Dashboard(props) {
 
   return (
     <main className="Dashboard">
-      <img src={spotifyLogo} alt="Spotify Logo" style={{height: '2em', marginTop: '1em'}} />
+      <img
+        src={spotifyLogo}
+        alt="Spotify Logo"
+        style={{ height: "2em", marginTop: "1em" }}
+      />
       <Header userInfo={userInfo} />
       <TopArtists topArtistInfo={topArtistInfo} />
       <Player />

@@ -1,3 +1,5 @@
+import { shadows } from "../common/constants";
+
 function millisToMinutesAndSeconds(millis) {
   var minutes = Math.floor(millis / 60000);
   var seconds = ((millis % 60000) / 1000).toFixed(0);
@@ -6,7 +8,11 @@ function millisToMinutesAndSeconds(millis) {
 
 const Track = ({ track, i }) => {
   return (
-    <li className="Track" onClick={() => window.open(track.uri)}>
+    <li
+      className="Track"
+      onClick={() => window.open(track.uri)}
+      style={{ filter: shadows.SMALL }}
+    >
       <p className="num light">
         {(i + 1).toString().length == 1 ? "0" + (i + 1) : i + 1}
       </p>

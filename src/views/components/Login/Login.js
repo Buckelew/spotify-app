@@ -19,7 +19,7 @@ const Login = () => {
   //   "user-library-read user-read-private user-top-read user-read-recently-played user-modify-playback-state user-read-currently-playing user-read-playback-state";
 
   const scope =
-    "user-library-read user-read-private user-top-read user-read-recently-played";
+    "user-library-read user-read-private user-top-read user-read-recently-played user-read-playback-state user-modify-playback-state";
 
   const handleLogin = async (e) => {
     e.preventDefault();

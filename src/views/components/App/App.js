@@ -16,6 +16,7 @@ function getHashParams() {
 }
 
 export const ThemeContext = createContext(null);
+export const AccessTokenContext = createContext(null);
 
 function App() {
   const [accessToken, setAccessToken] = useState();
@@ -39,11 +40,14 @@ function App() {
       <LoginCallback setAccessToken={setAccessToken} params={getHashParams()} />
     );
 
+  console.log(accessToken);
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className="App" id={theme}>
-        {componentToRender}
-      </div>
+      <AccessTokenContext.Provider value={{ accessToken }}>
+        <div className="App" id={theme}>
+          {componentToRender}
+        </div>
+      </AccessTokenContext.Provider>
     </ThemeContext.Provider>
   );
 }

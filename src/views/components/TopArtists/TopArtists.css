@@ -56,10 +56,6 @@
   scroll-behavior: smooth;
 }
 
-.TopArtists .artists .Artist > img {
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.2));
-}
-
 .TopArtists .artists .Artist img {
   border-radius: 1em;
 
